@@ -31,3 +31,59 @@ nvim() {
 }
 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
+
+eval "$(dircolors ~/.dir_colors)"
+
+# ───────────────────────────────────────────────────
+# Включаем vi-режим в zsh
+# ───────────────────────────────────────────────────
+
+bindkey -v
+
+# ───────────────────────────────────────────────────
+# Виджеты для работы с системным буфером
+# ───────────────────────────────────────────────────
+
+# 1) Вставка из системного буфера (как p в Vim)
+paste_from_clipboard() {
+
+  # для Linux
+  if command -v xclip &>/dev/null; then
+    local clip=$(xclip -selection clipboard -o)
+  # для macOS
+  elif command -v pbpaste &>/dev/null; then
+    local clip=$(pbpaste)
+  else
+    zle -M "Ошибка: не найден xclip или pbpaste"
+    return 1
+  fi
+  LBUFFER+="$clip"
+  zle reset-prompt
+}
+zle -N paste_from_clipboard
+
+# 2) Копирование всей строки в системный буфер (как y в Vim)
+copy_buffer_to_clipboard() {
+  # копируем весь буфер (BUFFER) без перевода строки на конце
+  if command -v xclip &>/dev/null; then
+    print -rn -- "$BUFFER" | xclip -selection clipboard -in
+  elif command -v pbcopy &>/dev/null; then
+    print -rn -- "$BUFFER" | pbcopy
+  else
+    zle -M "Ошибка: не найден xclip или pbcopy"
+    return 1
+  fi
+}
+
+zle -N copy_buffer_to_clipboard
+
+# ───────────────────────────────────────────────────
+# Биндинги в vi-командном режиме
+# ───────────────────────────────────────────────────
+# берем keymap vicmd (vi command mode)
+# y → копировать всю строку в системный буфер
+bindkey -M vicmd 'y' copy_buffer_to_clipboard
+
+
+# p → вставить из системного буфера на место курсора
+bindkey -M vicmd 'p' paste_from_clipboard
