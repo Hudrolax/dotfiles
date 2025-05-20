@@ -87,3 +87,5 @@ bindkey -M vicmd 'y' copy_buffer_to_clipboard
 
 # p → вставить из системного буфера на место курсора
 bindkey -M vicmd 'p' paste_from_clipboard
+
+export PATH="$HOME/.local/bin:$PATH"
