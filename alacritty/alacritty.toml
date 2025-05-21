@@ -1,5 +1,6 @@
 [general]
 import = [
+
     "C:\\Users\\hudro\\AppData\\Roaming\\alacritty\\themes\\themes\\monokai_pro.toml"
 ]
 
@@ -37,13 +38,13 @@ mods = "Control"
 
 [window]
 decorations = "None"
-# dynamic_padding = true
 opacity = 0.95
 startup_mode = "Maximized"
 
 [window.padding]
 x = 0
 y = 0
+
 
 [terminal.shell]
 program = "wsl"
@@ -53,3 +54,7 @@ args = [
     "--cd",
     "~"
 ]
+
+
+[selection]
+save_to_clipboard = true
