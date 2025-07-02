@@ -19,7 +19,7 @@ fi
 
 sudo chmod -R +x "$SCRIPTS_PATH"
 
-source "$SCRIPTS_PATH/install_packages.sh"
+source "$SCRIPTS_PATH/install-arch-packages.sh"
 
 echo "Install ML4W dotfiles..."
 bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)"
