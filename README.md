@@ -1,104 +1,66 @@
-## Описание
+## Description
 
-Данный репозиторий содержит набор скриптов и конфигураций для быстрого развертывания и настройки среды разработчика на Arch Linux с использованием ML4W Dotfiles и пользовательских конфигураций `hudro`.
+This repository contains a set of scripts and configurations for quickly deploying and setting up your environment.
 
-Основные возможности:
+## Quick Start
 
-* Автоматизированная установка системы и пакетов.
-* Развёртывание и синхронизация конфигураций `hudro`.
-* Поддержка популярных приложений: Alacritty, Kitty, Neovim, Waybar и других.
-* Готовые скрипты для интеграции в `.zshrc` и установки дополнительных плагинов.
-
-## Быстрый старт
-
-1. Склонируйте репозиторий:
+1. Clone the repository:
 
    ```bash
-   git clone https://github.com/ваш_проект/название_репозитория.git
-   cd название_репозитория
-   ```
-2. Дайте право на исполнение скриптам:
+   git clone https://github.com/Hudrolax/dotfiles.git ~/dotfiles
+````
+
+2. Make the scripts executable:
 
    ```bash
-   chmod +x *.sh scripts/*.sh
+   chmod +x ~/dotfiles/hudro/*.sh ~/dotfiles/hudro/scripts/*.sh
    ```
-3. Запустите полный установщик:
+3. Run the full installer (Arch Linux only):
 
    ```bash
-   ./install-arch-linux.sh
+   source ~/dotfiles/hudro/install-arch-linux.sh
    ```
 
-   Это скрипт установит все необходимые пакеты, склонирует ML4W Dotfiles и настроит конфиги `hudro`.
+   This script will install all required packages, clone the ML4W Dotfiles, and set up the `hudro` configs.
 
-## Структура репозитория
-
-```
-├── aur-packages.txt            # Список AUR-пакетов для установки
-├── native-packages.txt         # Список пакетов из официальных репозиториев
-├── .config/                    # Место назначения пользовательских конфигураций
-│   ├── alacritty/
-│   ├── hypr/
-│   ├── kitty/
-│   ├── nvim/
-│   ├── nwg-dock-hyprland/
-│   ├── tmux/
-│   └── waybar/
-├── glazewm/                    # Конфигурация и документация GlazeWM
-├── install-arch-linux.sh       # Полный установщик Arch + ML4W dotfiles + hudro configs
-├── make_requirements.sh        # Генерация файлов зависимостей (списки пакетов)
-├── scripts/                    # Дополнительные утилиты установки и настройки
-│   ├── install-arch-packages.sh   # Устанавливает пакеты из native- и AUR-списков
-│   ├── link_hudro_config.sh       # Создаёт символьные ссылки на конфиги hudro
-│   ├── add_zshrc-hudro.sh         # Добавляет `source ~/.zshrc-hudro` в ваш `.zshrc`
-│   └── install-oh-my-zsh-and-plugins.sh # Установка Oh My Zsh и плагинов
-└── .zshrc-hudro                # Пользовательские настройки Zsh для hudro
-```
-
-## Основные скрипты
+## Main Scripts
 
 ### `install-arch-linux.sh`
 
-Полный установщик. Выполняет следующие шаги:
+The full installer for Arch Linux. It performs the following steps:
 
-1. Обновляет систему и устанавливает базовые пакеты.
-2. Запускает `make_requirements.sh` для генерации списков зависимостей.
-3. Устанавливает пакеты из `native-packages.txt` и `aur-packages.txt` через `install-arch-packages.sh`.
-4. Клонирует ML4W Dotfiles и развёртывает их в домашней директории.
-5. Запускает `link_hudro_config.sh` для создания символических ссылок на конфиги `hudro`.
-6. Добавляет в `.zshrc` подключение `.zshrc-hudro` через `add_zshrc-hudro.sh`.
+1. Updates the system and installs base packages.
+2. Installs packages from `native-packages.txt` and `aur-packages.txt` via `install-arch-packages.sh`.
+3. Clones the ML4W Dotfiles and deploys them to your home directory.
+4. Runs `link_hudro_config.sh` to create symbolic links for the `hudro` configs.
+5. Adds sourcing of your `~/.zshrc-hudro` configuration to `.zshrc` via `add_zshrc-hudro.sh`.
 
 ### `scripts/install-arch-packages.sh`
 
-Устанавливает все указанные пакеты:
+Installs all specified packages for Arch Linux:
 
-* Из официальных репозиториев (файл `native-packages.txt`).
-* Из AUR (файл `aur-packages.txt`).
+* From the official repositories (`native-packages.txt`).
+* From AUR (`aur-packages.txt`).
 
 ### `scripts/link_hudro_config.sh`
 
-Создаёт символьные ссылки (`ln -sf`) из папки `hudro/.config` в `~/.config`, перезаписывая существующие файлы при необходимости.
+Creates symbolic links (`ln -sf`) from the `hudro/.config` folder to `~/.config`, overwriting existing files as needed.
 
 ### `scripts/add_zshrc-hudro.sh`
 
-Добавляет строку:
+Adds the following line to the end of your `~/.zshrc`, if it isn’t already present:
 
 ```bash
 source "$HOME/dotfiles/hudro/.zshrc-hudro"
 ```
 
-в конец вашего `~/.zshrc`, если она ещё не была добавлена.
+## Configuration and Customization
 
-## Настройка и кастомизация
-
-* Все конфигурации лежат в каталоге `.config/` и подтягиваются скриптами через симлинки.
-* Файл `.zshrc-hudro` содержит персональные алиасы, функции и настройки Zsh.
-* Для изменения пакетов отредактируйте `native-packages.txt` и/или `aur-packages.txt`.
-* Сборка списков пакетов: `./make_requirements.sh`.
-
-## Лицензия
-
-Укажите лицензию вашего проекта (например, MIT, GPL и т. д.).
+* All configurations reside in the `.config/` directory and are symlinked by the scripts.
+* The `.zshrc-hudro` file contains personal aliases, functions, and Zsh settings.
+* To modify packages, edit `native-packages.txt` and/or `aur-packages.txt`.
+* To regenerate package lists, run: `./make_requirements.sh`.
 
 ---
 
-*Автор: Sergei Nazarov*
+*Author: Sergei Nazarov*
