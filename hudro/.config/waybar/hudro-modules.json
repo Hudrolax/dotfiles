@@ -124,7 +124,7 @@
   // ChatGPT Launcher
   "custom/chatgpt": {
     "format": " ",
-    "on-click": "~/.config/ml4w/settings/ai.sh",
+    "on-click": "google-chrome-stable --app='https://chat.openai.com'",
     "tooltip-format": "AI Support"
   },
 

@@ -6,20 +6,6 @@
 if [[ -e $HOME/.config/hypr ]]; then
   # Link hyprland config
   ln -sfnT ~/dotfiles/hudro/.config/hypr/conf/custom-hudro.conf ~/.config/hypr/conf/custom-hudro.conf
-
-  # Link hyprlock config
-  ln -sfnT ~/dotfiles/hudro/.config/hypr/hyprlock_custom.conf ~/.config/hypr/hyprlock_custom.conf
-
-  # Link waybar
-  ln -sfnT ~/dotfiles/hudro/.config/waybar/themes/hudro ~/.config/waybar/themes/hudro
-  ln -sfnT ~/dotfiles/hudro/.config/waybar/hudro-modules.json ~/.config/waybar/hudro-modules.json
-  sed -i.bak \
-    's|^options=$(find \$themes_path -maxdepth 2 -type d)|options=$(find -L \$themes_path -maxdepth 2 -type d)|' \
-    ~/.config/waybar/themeswitcher.sh
-  sed -i.bak \
-    's|find \$value -maxdepth 1 -type d|find -L \$value -maxdepth 1 -type d|' \
-    ~/.config/waybar/themeswitcher.sh
-
   CUSTOM_HYPR_CONFIG="$HOME/.config/hypr/conf/custom.conf"
   HYPRLOCK_CONFIG="$HOME/.config/hypr/hyprlock.conf"
 
@@ -30,6 +16,24 @@ if [[ -e $HOME/.config/hypr ]]; then
   if ! grep -Fxq "source = $HUDRO_CUSTOM_CONFIG_PATH" "$CUSTOM_HYPR_CONFIG"; then
     echo "source = $HUDRO_CUSTOM_CONFIG_PATH" >> "$CUSTOM_HYPR_CONFIG"
   fi
+
+  # hyprland binds config
+  ln -sfnT ~/dotfiles/hudro/.config/hypr/conf/keybindings/hudro.conf ~/.config/hypr/conf/keybindings/hudro.conf
+  echo "source = ~/.config/hypr/conf/keybindings/hudro.conf" > ~/.config/hypr/conf/keybinding.conf
+
+  # Link hyprlock config
+  ln -sfnT ~/dotfiles/hudro/.config/hypr/hyprlock_custom.conf ~/.config/hypr/hyprlock_custom.conf
+
+  # Link waybar conf
+  ln -sfnT ~/dotfiles/hudro/.config/waybar/themes/hudro ~/.config/waybar/themes/hudro
+  ln -sfnT ~/dotfiles/hudro/.config/waybar/hudro-modules.json ~/.config/waybar/hudro-modules.json
+  sed -i.bak \
+    's|^options=$(find \$themes_path -maxdepth 2 -type d)|options=$(find -L \$themes_path -maxdepth 2 -type d)|' \
+    ~/.config/waybar/themeswitcher.sh
+  sed -i.bak \
+    's|find \$value -maxdepth 1 -type d|find -L \$value -maxdepth 1 -type d|' \
+    ~/.config/waybar/themeswitcher.sh
+  echo "/hudro;/hudro" > ~/.config/ml4w/settings/waybar-theme.sh
 
   # add custom hyprlock config
   mv ~/.config/hypr/hyprlock.conf ~/.config/hypr/hyprlock.conf.bak || true
