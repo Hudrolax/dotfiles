@@ -1,0 +1,1 @@
+/home/hudro/dotfiles/hudro/.config/hypr/scripts/take-area-screenshot.sh

@@ -21,6 +21,10 @@ if [[ -e $HOME/.config/hypr ]]; then
   ln -sfnT ~/dotfiles/hudro/.config/hypr/conf/keybindings/hudro.conf ~/.config/hypr/conf/keybindings/hudro.conf
   echo "source = ~/.config/hypr/conf/keybindings/hudro.conf" > ~/.config/hypr/conf/keybinding.conf
 
+  # screenshots config
+  ln -sfnT ~/dotfiles/hudro/.config/hypr/scripts/take-area-screenshot.sh ~/.config/hypr/scripts/take-area-screenshot.sh
+  chmod +x ~/.config/hypr/scripts/take-area-screenshot.sh
+
   # Link hyprlock config
   ln -sfnT ~/dotfiles/hudro/.config/hypr/hyprlock_custom.conf ~/.config/hypr/hyprlock_custom.conf
 
