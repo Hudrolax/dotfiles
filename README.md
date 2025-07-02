@@ -8,8 +8,7 @@ This repository contains a set of scripts and configurations for quickly deployi
 
    ```bash
    git clone https://github.com/Hudrolax/dotfiles.git ~/dotfiles
-````
-
+   ```
 2. Make the scripts executable:
 
    ```bash
@@ -30,10 +29,10 @@ This repository contains a set of scripts and configurations for quickly deployi
 The full installer for Arch Linux. It performs the following steps:
 
 1. Updates the system and installs base packages.
-2. Installs packages from `native-packages.txt` and `aur-packages.txt` via `install-arch-packages.sh`.
+2. Installs packages from `native-packages.txt` and `aur-packages.txt` via `scripts/install-arch-packages.sh`.
 3. Clones the ML4W Dotfiles and deploys them to your home directory.
-4. Runs `link_hudro_config.sh` to create symbolic links for the `hudro` configs.
-5. Adds sourcing of your `~/.zshrc-hudro` configuration to `.zshrc` via `add_zshrc-hudro.sh`.
+4. Runs `scripts/link_hudro_config.sh` to create symbolic links for the `hudro` configs.
+5. Adds a `source "$HOME/dotfiles/hudro/.zshrc-hudro"` line to your `.zshrc` via `scripts/add_zshrc-hudro.sh`.
 
 ### `scripts/install-arch-packages.sh`
 
@@ -50,9 +49,7 @@ Creates symbolic links (`ln -sf`) from the `hudro/.config` folder to `~/.config`
 
 Adds the following line to the end of your `~/.zshrc`, if it isn’t already present:
 
-```bash
-source "$HOME/dotfiles/hudro/.zshrc-hudro"
-```
+    source "$HOME/dotfiles/hudro/.zshrc-hudro"
 
 ## Configuration and Customization
 
