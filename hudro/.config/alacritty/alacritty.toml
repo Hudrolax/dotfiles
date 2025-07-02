@@ -1,0 +1,44 @@
+[env]
+TERM = "xterm-256color"
+COLORTERM = "truecolor"
+LANG = "en_US.UTF-8"
+
+[font]
+size = 12
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+chars = " ts"
+key = "4"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = " bm"
+key = ","
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = " bM"
+key = "."
+mods = "Control"
+
+[[keyboard.bindings]]
+action = 'Paste'
+key = "v"
+mods = "Control"
+
+[window]
+decorations = "None"
+opacity = 0.95
+startup_mode = "Maximized"
+blur = true
+
+[window.padding]
+x = 0
+y = 0
+
+[selection]
+save_to_clipboard = true

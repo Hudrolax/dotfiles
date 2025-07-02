@@ -1,0 +1,32 @@
+
+# Подгружаем переменные окружения из ~/.env
+if [[ -f ~/.env ]]; then
+  set -a            # автоматически экспортировать все последующие переменные
+  source ~/.env     # читаем файл
+  set +a            # возвращаем обычное поведение
+fi
+
+alias docker-compose='docker compose'
+set -o vi
+
+# если в корне проекта есть папка venv — активируем её
+nvim() {
+  if [ -d "$PWD/venv" ] && [ -z "$VIRTUAL_ENV" ]; then
+    source "$PWD/venv/bin/activate"
+  fi
+  command nvim "$@"
+}
+
+bindkey -v
+
+# # Авто-подключение к последней сессии tmux или создание новой
+# if command -v tmux >/dev/null 2>&1 && [[ -z $TMUX ]]; then
+#   # попытаться получить список сессий, если он есть
+#   if sessions=$(tmux ls 2>/dev/null); then
+#     # вычленяем имя последней по созданию сессии
+#     last=$(echo "$sessions" | tail -n1 | cut -d: -f1)
+#     tmux attach-session -t "$last"
+#   else
+#     tmux new-session
+#   fi
+# fi
