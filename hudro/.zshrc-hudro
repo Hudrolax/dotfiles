@@ -31,3 +31,17 @@ nvim() {
 #     tmux new-session
 #   fi
 # fi
+
+# # ───────────────────────────────────────────────────
+# # Добавим пути для Android SDK (WSL only)
+# # ───────────────────────────────────────────────────
+# export ANDROID_SDK_ROOT=/mnt/c/Users/hudro/AppData/Local/Android/Sdk
+# export ANDROID_HOME=$ANDROID_SDK_ROOT
+# export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/tools/bin
+# alias adb="adb.exe"
+#
+# export EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+# export REACT_NATIVE_PACKAGER_HOSTNAME=192.168.0.234
+# export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+# export PATH=$JAVA_HOME/bin:$PATH
+# export COMPOSE_BAKE=true

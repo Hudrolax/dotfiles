@@ -1,47 +1,70 @@
 #!/bin/bash
 
-# Link hyprland config
-ln -sfnT ~/dotfiles/hudro/.config/hypr/conf/custom-hudro.conf ~/.config/hypr/conf/custom-hudro.conf
+# -----------------------------------------------------
+# Hyprland config
+# -----------------------------------------------------
+if [[ -e $HOME/.config/hypr ]]; then
+  # Link hyprland config
+  ln -sfnT ~/dotfiles/hudro/.config/hypr/conf/custom-hudro.conf ~/.config/hypr/conf/custom-hudro.conf
 
-# Link hyprlock config
-ln -sfnT ~/dotfiles/hudro/.config/hypr/hyprlock_custom.conf ~/.config/hypr/hyprlock_custom.conf
+  # Link hyprlock config
+  ln -sfnT ~/dotfiles/hudro/.config/hypr/hyprlock_custom.conf ~/.config/hypr/hyprlock_custom.conf
 
-# Link kitty config
-ln -sfnT ~/dotfiles/hudro/.config/kitty/custom.conf ~/.config/kitty/custom.conf
+  # Link waybar
+  ln -sfnT ~/dotfiles/hudro/.config/waybar/themes/hudro ~/.config/waybar/themes/hudro
+  ln -sfnT ~/dotfiles/hudro/.config/waybar/hudro-modules.json ~/.config/waybar/hudro-modules.json
+  sed -i.bak \
+    's|^options=$(find \$themes_path -maxdepth 2 -type d)|options=$(find -L \$themes_path -maxdepth 2 -type d)|' \
+    ~/.config/waybar/themeswitcher.sh
+  sed -i.bak \
+    's|find \$value -maxdepth 1 -type d|find -L \$value -maxdepth 1 -type d|' \
+    ~/.config/waybar/themeswitcher.sh
 
-# Link alacritty config
-ln -sfnT ~/dotfiles/hudro/.config/alacritty ~/.config/alacritty
+  CUSTOM_HYPR_CONFIG="$HOME/.config/hypr/conf/custom.conf"
+  HYPRLOCK_CONFIG="$HOME/.config/hypr/hyprlock.conf"
 
-# Link waybar
-ln -sfnT ~/dotfiles/hudro/.config/waybar/themes/hudro ~/.config/waybar/themes/hudro
-ln -sfnT ~/dotfiles/hudro/.config/waybar/hudro-modules.json ~/.config/waybar/hudro-modules.json
-sed -i.bak \
-  's|^options=$(find \$themes_path -maxdepth 2 -type d)|options=$(find -L \$themes_path -maxdepth 2 -type d)|' \
-  ~/.config/waybar/themeswitcher.sh
-sed -i.bak \
-  's|find \$value -maxdepth 1 -type d|find -L \$value -maxdepth 1 -type d|' \
-  ~/.config/waybar/themeswitcher.sh
+  HUDRO_CUSTOM_CONFIG_PATH="~/.config/hypr/conf/custom-hudro.conf"
+  HUDRO_CUSTOM_HYPRLOCK_CONFIG_PATH="~/.config/hypr/hyprlock_custom.conf"
 
+  # add custom hyprland config
+  if ! grep -Fxq "source = $HUDRO_CUSTOM_CONFIG_PATH" "$CUSTOM_HYPR_CONFIG"; then
+    echo "source = $HUDRO_CUSTOM_CONFIG_PATH" >> "$CUSTOM_HYPR_CONFIG"
+  fi
 
+  # add custom hyprlock config
+  mv ~/.config/hypr/hyprlock.conf ~/.config/hypr/hyprlock.conf.bak || true
+  ln -sfnT ~/dotfiles/hudro/.config/hypr/hyprlock.conf ~/.config/hypr/hyprlock.conf
 
-CUSTOM_HYPR_CONFIG="$HOME/.config/hypr/conf/custom.conf"
-HYPRLOCK_CONFIG="$HOME/.config/hypr/hyprlock.conf"
+  # Dock config
+  mv -f $HOME/.config/nwg-dock-hyprland/launch.sh $HOME/.config/nwg-dock-hyprland/launch.sh.backup || true
+  ln -sfnT ~/dotfiles/hudro/.config/nwg-dock-hyprland/launch.sh ~/.config/nwg-dock-hyprland/launch.sh
 
-HUDRO_CUSTOM_CONFIG_PATH="~/.config/hypr/conf/custom-hudro.conf"
-HUDRO_CUSTOM_HYPRLOCK_CONFIG_PATH="~/.config/hypr/hyprlock_custom.conf"
-
-# add custom hyprland config
-if ! grep -Fxq "source = $HUDRO_CUSTOM_CONFIG_PATH" "$CUSTOM_HYPR_CONFIG"; then
-  echo "source = $HUDRO_CUSTOM_CONFIG_PATH" >> "$CUSTOM_HYPR_CONFIG"
+  mv -f $HOME/.config/nwg-dock-hyprland/style-dark.css $HOME/.config/nwg-dock-hyprland/style-dark.css.backup || true
+  ln -sfnT ~/dotfiles/hudro/.config/nwg-dock-hyprland/style-dark.css ~/.config/nwg-dock-hyprland/style-dark.css
+else
+  echo "⚠ Hyprland not installed!"
 fi
 
-# add custom hyprlock config
-mv ~/.config/hypr/hyprlock.conf ~/.config/hypr/hyprlock.conf.bak || true
-ln -sfnT ~/dotfiles/hudro/.config/hypr/hyprlock.conf ~/.config/hypr/hyprlock.conf
+# -----------------------------------------------------
+# kitty config
+# -----------------------------------------------------
+if [[ -e $HOME/.config/kitty ]]; then
+  ln -sfnT ~/dotfiles/hudro/.config/kitty/custom.conf ~/.config/kitty/custom.conf
+else
+  echo "kitty not installed!"
+fi
 
-# Dock config
-mv -f $HOME/.config/nwg-dock-hyprland/launch.sh $HOME/.config/nwg-dock-hyprland/launch.sh.backup || true
-ln -sfnT ~/dotfiles/hudro/.config/nwg-dock-hyprland/launch.sh ~/.config/nwg-dock-hyprland/launch.sh
+# -----------------------------------------------------
+# alacritty config
+# -----------------------------------------------------
+mv -f ~/.config/alacritty ~/.config/alacritty.old || true
+rm -rf ~/.config/alacritty || true
+ln -sfnT ~/dotfiles/hudro/.config/alacritty ~/.config/alacritty
 
-mv -f $HOME/.config/nwg-dock-hyprland/style-dark.css $HOME/.config/nwg-dock-hyprland/style-dark.css.backup || true
-ln -sfnT ~/dotfiles/hudro/.config/nwg-dock-hyprland/style-dark.css ~/.config/nwg-dock-hyprland/style-dark.css
+# -----------------------------------------------------
+# nvim config
+# -----------------------------------------------------
+mv -f ~/.config/nvim ~/.config/nvim.old || true
+rm -rf ~/.config/nvim || true
+ln -sfnT ~/dotfiles/hudro/.config/nvim ~/.config/nvim
+
