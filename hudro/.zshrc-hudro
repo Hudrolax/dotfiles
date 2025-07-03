@@ -5,6 +5,7 @@ if [[ -f ~/.env ]]; then
   set +a            # возвращаем обычное поведение
 fi
 
+export EDITOR=nvim
 
 alias lzd='lazydocker'
 alias docker-compose='docker compose'
@@ -18,6 +19,14 @@ nvim() {
     source "$PWD/venv/bin/activate"
   fi
   command nvim "$@"
+}
+
+start_net_data(){
+  sudo systemctl start netdata
+}
+
+stop_net_data(){
+  sudo systemctl stop netdata
 }
 
 # # Авто-подключение к последней сессии tmux или создание новой

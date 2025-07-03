@@ -235,6 +235,7 @@
     "format": "{:%H:%M %a %Od}",
     "on-click": "flatpak run com.ml4w.calendar",
     "timezone": "",
+    "interval": 60,
     "tooltip": false,
     "timezone": "America/Argentina/Buenos_Aires"
   },
@@ -248,13 +249,15 @@
   // CPU
   "cpu": {
     "format": "/ C {usage}% ",
-    "on-click": "~/.config/ml4w/settings/system-monitor.sh"
+    "on-click": "~/.config/ml4w/settings/system-monitor.sh",
+    "interval": 5
   },
 
   // Memory
   "memory": {
     "format": "/ M {}% ",
-    "on-click": "~/.config/ml4w/settings/system-monitor.sh"
+    "on-click": "~/.config/ml4w/settings/system-monitor.sh",
+    "interval": 5
   },
 
   // Harddisc space used
@@ -269,7 +272,7 @@
   "hyprland/language": {
     "format": "{short}",
     "tooltip": false,
-    "interval": 1,
+    "interval": 30,
     "class": "kb-layout",
     "keyboard-name": "at-translated-set-2-keyboard",
     "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
@@ -388,7 +391,8 @@
       "car": " ",
       "default": ["", "", ""]
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
+    "interval": 5
   },
 
   // Bluetooth

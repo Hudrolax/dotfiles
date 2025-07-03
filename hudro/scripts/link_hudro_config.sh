@@ -28,6 +28,11 @@ if [[ -e $HOME/.config/hypr ]]; then
   # Link hyprlock config
   ln -sfnT ~/dotfiles/hudro/.config/hypr/hyprlock_custom.conf ~/.config/hypr/hyprlock_custom.conf
 
+  # Turn OFF Walpeppers deamon (CPU usage)
+  sed -i.bak \
+    's|^exec-once = ~/.config/hypr/scripts/wallpaper-restore.sh|#exec-once = ~/.config/hypr/scripts/wallpaper-restore.sh|' \
+    ~/.config/hypr/conf/autostart.conf
+
   # Link waybar conf
   ln -sfnT ~/dotfiles/hudro/.config/waybar/themes/hudro ~/.config/waybar/themes/hudro
   ln -sfnT ~/dotfiles/hudro/.config/waybar/hudro-modules.json ~/.config/waybar/hudro-modules.json

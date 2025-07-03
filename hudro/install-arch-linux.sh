@@ -27,4 +27,5 @@ bash -c "$(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/mai
 source "$SCRIPTS_PATH/install-oh-my-zsh-and-plugins.sh"
 source "$SCRIPTS_PATH/link_hudro_config.sh"
 source "$SCRIPTS_PATH/add_zshrc-hudro.sh"
+source "$SCRIPTS_PATH/make_suspend.sh"
 
