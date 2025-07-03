@@ -1,0 +1,15 @@
+bibata-cursor-theme-bin
+checkupdates-with-aur
+google-chrome
+grimblast-git
+hyprshade
+nautilus-open-any-terminal
+oh-my-posh-bin
+pacseek
+pinta
+python-screeninfo
+waypaper
+wlogout
+yay
+yay-debug
+zsh-fast-syntax-highlighting

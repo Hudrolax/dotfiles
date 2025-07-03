@@ -272,7 +272,7 @@
   "hyprland/language": {
     "format": "{short}",
     "tooltip": false,
-    "interval": 30,
+    "interval": 3,
     "class": "kb-layout",
     "keyboard-name": "at-translated-set-2-keyboard",
     "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
