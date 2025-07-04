@@ -5,11 +5,14 @@ drm_info
 google-chrome
 grimblast-git
 hyprshade
+miniconda3
 nautilus-open-any-terminal
 oh-my-posh-bin
 pacseek
 pinta
+portmaster-stub-bin
 python-screeninfo
+visual-studio-code-bin
 waypaper
 wlogout
 yay

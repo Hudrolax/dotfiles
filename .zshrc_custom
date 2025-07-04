@@ -7,6 +7,7 @@ if [[ -f ~/.env ]]; then
 fi
 
 alias docker-compose='docker compose'
+alias open='xdg-open'
 set -o vi
 
 # если в корне проекта есть папка venv — активируем её

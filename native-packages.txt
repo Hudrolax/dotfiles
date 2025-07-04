@@ -11,7 +11,6 @@ breeze
 brightnessctl
 chromium
 cliphist
-code
 cpupower
 docker
 docker-compose
@@ -54,6 +53,7 @@ lib32-nvidia-utils
 lib32-vulkan-icd-loader
 libadwaita
 libnotify
+libreoffice-fresh
 linux
 linux-firmware
 loupe
@@ -78,6 +78,7 @@ nvidia-prime
 nvtop
 nwg-dock-hyprland
 nwg-look
+obs-studio
 obsidian
 os-prober
 otf-font-awesome
@@ -104,6 +105,7 @@ sof-firmware
 spotify-launcher
 swaync
 syncthing
+tabiew
 telegram-desktop
 tmux
 tree
@@ -118,6 +120,7 @@ unzip
 uv
 uwsm
 vi
+vlc
 waybar
 wayland-protocols
 wget
