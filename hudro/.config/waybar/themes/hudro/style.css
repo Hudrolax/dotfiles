@@ -529,6 +529,13 @@ window#waybar.empty #window {
   background: #44475a;
 }
 
+#taskbar {
+    margin-left: 20px;
+    background: #44475a;
+    border: 0
+}
+
+
 /* -----------------------------------------------------
  * Import Pywal colors
  * ----------------------------------------------------- */

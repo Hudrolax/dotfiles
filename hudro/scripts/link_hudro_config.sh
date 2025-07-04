@@ -67,6 +67,11 @@ if [[ -e $HOME/.config/hypr ]]; then
 
   # suspend non actived processes script
   ln -sfnT ~/dotfiles/hudro/.config/hypr/scripts/suspend_nonactied_processes.sh ~/.config/hypr/scripts/suspend_nonactied_processes.sh
+
+  # waybar taskbar
+  mkdir -p ~/.config/waybar/scripts
+  ln -sfnT ~/dotfiles/hudro/.config/waybar/scripts/pin.sh ~/.config/waybar/scripts/pin.sh
+  chmod +x ~/dotfiles/hudro/.config/waybar/scripts/pin.sh
 else
   echo "⚠ Hyprland not installed!"
 fi
