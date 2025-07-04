@@ -9,6 +9,7 @@ export EDITOR=nvim
 
 alias lzd='lazydocker'
 alias docker-compose='docker compose'
+alias open='xdg-open'
 
 set -o vi
 bindkey -v

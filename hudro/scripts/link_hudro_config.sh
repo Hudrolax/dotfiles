@@ -64,6 +64,9 @@ if [[ -e $HOME/.config/hypr ]]; then
 
   # auto start applications
   ln -sfnT ~/dotfiles/hudro/.config/hypr/scripts/autostart_applications.sh ~/.config/hypr/scripts/autostart_applications.sh
+
+  # suspend non actived processes script
+  ln -sfnT ~/dotfiles/hudro/.config/hypr/scripts/suspend_nonactied_processes.sh ~/.config/hypr/scripts/suspend_nonactied_processes.sh
 else
   echo "⚠ Hyprland not installed!"
 fi
