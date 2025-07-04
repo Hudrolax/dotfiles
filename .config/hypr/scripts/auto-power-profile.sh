@@ -1,0 +1,1 @@
+/home/hudro/dotfiles/hudro/.config/hypr/scripts/auto-power-profile.sh

@@ -30,27 +30,29 @@
         //"wlr/taskbar",
         "group/quicklinks",
         //"hyprland/window",
+        "hyprland/workspaces",
         "custom/empty"
     ],
 
     // Modules Center
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
+   // "modules-center": [
+       // "hyprland/workspaces"
+ //       "custom/empty"
+   // ],
 
     // Modules Right    
     "modules-right": [
         "hyprland/language",
         "custom/updates",
         "pulseaudio",
-//"backlight",
+        "backlight",
         "bluetooth",
 "network",
         "battery", 
         "power-profiles-daemon",
-//        "group/hardware",
+        "group/hardware",
         "group/tools",
-"tray",
+        "tray",
         "custom/notification",
         "custom/exit",
         "custom/ml4w-welcome",

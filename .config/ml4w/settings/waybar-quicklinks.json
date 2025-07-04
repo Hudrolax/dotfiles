@@ -6,8 +6,8 @@ You can reload waybar with SUPER + SHIFT + B
 {
     "custom/quicklink_browser": {
         "format": "",
-        "on-click": "~/.config/ml4w/settings/browser.sh",
-        "tooltip-format": "Open Browser"
+        "on-click": "~/.config/hypr/scripts/autostart_applications.sh",
+        "tooltip-format": "Open applications"
     },
     "custom/quicklink_filemanager": {
         "format": "",

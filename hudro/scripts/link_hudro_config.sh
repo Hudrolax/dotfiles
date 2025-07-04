@@ -29,9 +29,9 @@ if [[ -e $HOME/.config/hypr ]]; then
   ln -sfnT ~/dotfiles/hudro/.config/hypr/hyprlock_custom.conf ~/.config/hypr/hyprlock_custom.conf
 
   # Turn OFF Walpeppers deamon (CPU usage)
-  sed -i.bak \
-    's|^exec-once = ~/.config/hypr/scripts/wallpaper-restore.sh|#exec-once = ~/.config/hypr/scripts/wallpaper-restore.sh|' \
-    ~/.config/hypr/conf/autostart.conf
+  # sed -i.bak \
+  #   's|^exec-once = ~/.config/hypr/scripts/wallpaper-restore.sh|#exec-once = ~/.config/hypr/scripts/wallpaper-restore.sh|' \
+  #   ~/.config/hypr/conf/autostart.conf
 
   # Link waybar conf
   ln -sfnT ~/dotfiles/hudro/.config/waybar/themes/hudro ~/.config/waybar/themes/hudro
@@ -54,6 +54,16 @@ if [[ -e $HOME/.config/hypr ]]; then
 
   mv -f $HOME/.config/nwg-dock-hyprland/style-dark.css $HOME/.config/nwg-dock-hyprland/style-dark.css.backup || true
   ln -sfnT ~/dotfiles/hudro/.config/nwg-dock-hyprland/style-dark.css ~/.config/nwg-dock-hyprland/style-dark.css
+
+  # auto power profile
+  ln -sfnT ~/dotfiles/hudro/.config/hypr/scripts/auto-power-profile.sh ~/.config/hypr/scripts/auto-power-profile.sh
+  chmod +x ~/dotfiles/hudro/.config/hypr/scripts/auto-power-profile.sh
+
+  # link hudro hypr conf
+  ln -sfnT ~/dotfiles/hudro/.config/hypr/hudro-conf ~/.config/hypr/hudro-conf
+
+  # auto start applications
+  ln -sfnT ~/dotfiles/hudro/.config/hypr/scripts/autostart_applications.sh ~/.config/hypr/scripts/autostart_applications.sh
 else
   echo "⚠ Hyprland not installed!"
 fi
@@ -71,13 +81,11 @@ fi
 # alacritty config
 # -----------------------------------------------------
 mv -f ~/.config/alacritty ~/.config/alacritty.old || true
-rm -rf ~/.config/alacritty || true
 ln -sfnT ~/dotfiles/hudro/.config/alacritty ~/.config/alacritty
 
 # -----------------------------------------------------
 # nvim config
 # -----------------------------------------------------
 mv -f ~/.config/nvim ~/.config/nvim.old || true
-rm -rf ~/.config/nvim || true
 ln -sfnT ~/dotfiles/hudro/.config/nvim ~/.config/nvim
 
