@@ -16,6 +16,7 @@
     "margin-left": 0,
     "margin-right": 0,    
     "spacing": 0,
+    "fixed-center": false,
 
     // Load Modules
     "include": [
@@ -43,14 +44,14 @@
     // Modules Right    
     "modules-right": [
         "hyprland/language",
-        "custom/updates",
+ //       "custom/updates",
         "pulseaudio",
         "backlight",
         "bluetooth",
-"network",
+        "network",
         "battery", 
         "power-profiles-daemon",
-        "group/hardware",
+      //  "group/hardware",
         "group/tools",
         "tray",
         "custom/notification",
