@@ -1,5 +1,7 @@
+amneziavpn-bin
 bibata-cursor-theme-bin
 checkupdates-with-aur
+drm_info
 google-chrome
 grimblast-git
 hyprshade

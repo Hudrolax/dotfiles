@@ -11,6 +11,10 @@ breeze
 brightnessctl
 chromium
 cliphist
+code
+cpupower
+docker
+docker-compose
 efibootmgr
 eza
 fastfetch
@@ -47,6 +51,7 @@ kitty
 lazygit
 less
 lib32-nvidia-utils
+lib32-vulkan-icd-loader
 libadwaita
 libnotify
 linux
@@ -110,11 +115,13 @@ ttf-hack-nerd
 ttf-nerd-fonts-symbols
 tumbler
 unzip
+uv
 uwsm
 vi
 waybar
 wayland-protocols
 wget
+wireless-regdb
 wl-clipboard
 wofi
 xclip

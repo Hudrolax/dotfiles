@@ -9,7 +9,7 @@ mkdir -p "$logdir"
 scripts=(
   'hyprctl dispatch exec "[workspace 1 silent] google-chrome-stable --app=https://chat.openai.com"'
   'hyprctl dispatch exec "[workspace 2 silent] firefox"'
-  'hyprctl dispatch exec "[workspace 3 silent] kitty"'
+  'hyprctl dispatch exec "[workspace 3 silent] alacritty"'
   'hyprctl dispatch exec "[workspace 4 silent] obsidian"'
   'keepassxc'
 )
