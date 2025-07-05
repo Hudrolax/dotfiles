@@ -67,6 +67,7 @@ if [[ -e $HOME/.config/hypr ]]; then
 
   # suspend non actived processes script
   ln -sfnT ~/dotfiles/hudro/.config/hypr/scripts/suspend_nonactied_processes.sh ~/.config/hypr/scripts/suspend_nonactied_processes.sh
+  ln -sfnT ~/dotfiles/hudro/.config/hypr/scripts/ws-freezer.json ~/.config/hypr/scripts/ws-freezer.json
 
   # waybar taskbar
   mkdir -p ~/.config/waybar/scripts
