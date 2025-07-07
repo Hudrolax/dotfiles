@@ -65,6 +65,7 @@ libnotify
 libreoffice-fresh
 linux
 linux-firmware
+linux-headers
 loupe
 ly
 mako
