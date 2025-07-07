@@ -1,6 +1,7 @@
 alacritty
 alsa-plugins
 alsa-utils
+android-tools
 base
 base-devel
 bat
@@ -9,10 +10,12 @@ bluez-utils
 bottom
 breeze
 brightnessctl
+btop
 chromium
 cliphist
 cpupower
 docker
+docker-buildx
 docker-compose
 efibootmgr
 eza
@@ -25,6 +28,7 @@ flatpak
 fprintd
 fuse2
 fzf
+gimp
 git
 gnome-calculator
 gnome-text-editor
@@ -41,16 +45,21 @@ hyprpaper
 hyprpicker
 imagemagick
 imv
+inotify-tools
 intel-gpu-tools
 intel-ucode
 iwd
 jq
+jre-openjdk
+jre8-openjdk
+kdeconnect
 keepassxc
 kitty
 lazygit
 less
 lib32-nvidia-utils
 lib32-vulkan-icd-loader
+lib32-vulkan-intel
 libadwaita
 libnotify
 libreoffice-fresh
@@ -60,6 +69,7 @@ loupe
 ly
 mako
 man-pages
+mission-center
 mpv
 nautilus
 neovim
@@ -73,7 +83,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 npm
-nvidia
+nvidia-dkms
 nvidia-prime
 nvtop
 nwg-dock-hyprland
@@ -92,6 +102,7 @@ power-profiles-daemon
 python-gobject
 python-pip
 python-pynvim
+qbittorrent
 qt5-wayland
 qt6ct
 radeontop
@@ -101,6 +112,7 @@ rsync
 rust
 sddm
 slurp
+socat
 sof-firmware
 spotify-launcher
 swaync
@@ -121,6 +133,7 @@ uv
 uwsm
 vi
 vlc
+vulkan-intel
 waybar
 wayland-protocols
 wget

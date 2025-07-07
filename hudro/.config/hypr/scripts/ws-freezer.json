@@ -1,5 +1,5 @@
 [
-  { "name": "firefox",  "delay": 1 },
+  { "name": "firefox",  "delay": 10 },
   { "name": "chromium", "delay": 60 },
   { "name": "vlc",      "delay": 1 }
 ]
