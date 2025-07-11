@@ -67,6 +67,7 @@ linux
 linux-firmware
 linux-headers
 loupe
+lutris
 ly
 mako
 man-pages
@@ -138,6 +139,7 @@ vulkan-intel
 waybar
 wayland-protocols
 wget
+winetricks
 wireless-regdb
 wl-clipboard
 wofi

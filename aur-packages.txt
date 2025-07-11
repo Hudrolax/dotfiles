@@ -13,6 +13,7 @@ pinta
 portmaster-stub-bin
 python-screeninfo
 visual-studio-code-bin
+watchman-bin
 waypaper
 wlogout
 yay
