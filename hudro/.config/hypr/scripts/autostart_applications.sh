@@ -12,7 +12,7 @@ scripts=(
   'hyprctl dispatch exec "[workspace 3 silent] alacritty"'
   'hyprctl dispatch exec "[workspace 4 silent] obsidian"'
   'keepassxc'
-  'hyprctl dispatch exec "[workspace 1 silent] kdeconnect-app'
+  'hyprctl dispatch exec "[workspace 1 silent] kdeconnect-app"'
 )
 
 for cmd in "${scripts[@]}"; do
